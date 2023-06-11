@@ -49,9 +49,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <?php endforeach; ?>
-
             <!-- Nav Item - Logout -->
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
