@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
             <!-- Footer -->
             
             <!-- End of Footer -->
-=======
->>>>>>> f54ccc7da431e3823052777cccf099952a5a9f50
 
        </div>
         <!-- End of Content Wrapper -->

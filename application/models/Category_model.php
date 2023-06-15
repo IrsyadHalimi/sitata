@@ -1,15 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class News_model extends CI_Model
+class Category_model extends CI_Model
 {
-  private $_table = 'berita';
+  private $_table = 'kategori';
   
-  public function get_news($limit, $start)
+  public function get()
   {
     $this->db->select('*');
     $this->db->from($this->_table);
-    $this->db->join('kategori', 'kategori.id_kategori=berita.id_kategori');
-    $this->db->limit($limit, $start);
     $query = $this->db->get();
     return $query->result();
   }
@@ -18,12 +16,11 @@ class News_model extends CI_Model
     return $this->db->count_all($this->_table);
   }
 
-  public function get_by_id($news_id)
+  public function get_by_id($category_id)
   {
     $this->db->select('*');
     $this->db->from($this->_table);
-    $this->db->join('kategori', 'kategori.id_kategori=berita.id_kategori');
-    $this->db->where($news_id);
+    $this->db->where($category_id);
     $query = $this->db->get();
     return $query->result();
   }
@@ -38,9 +35,9 @@ class News_model extends CI_Model
     return $query->row_array();
   }
 
-  public function insert($news)
+  public function insert($category)
   {
-    return $this->db->insert($this->_table, $news);
+    return $this->db->insert($this->_table, $category);
   }
 
   public function update($where, $data)
@@ -80,12 +77,13 @@ class News_model extends CI_Model
     $query = $this->db->get();
     return $query->result();
   }
-
-  public function increment_view($idnews)
-  {
-    $this->db->where('id_berita', $idnews);
-    $this->db->set('dilihat', 'dilihat+1', FALSE);
-    $this->db->update($this->_table);
-  }
   
+  public function delete_category($id)
+  {
+    if (!$id) {
+      return;
+    }
+
+    return $this->db->delete($this->_table, ['id_kategori' => $id]);
+  }
 }

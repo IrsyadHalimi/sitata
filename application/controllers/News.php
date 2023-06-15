@@ -26,16 +26,16 @@ class News extends CI_Controller
 		$data["links"] = $this->pagination->create_links();
 		$data['news'] = $this->News_model->get_news($config["per_page"], $page);
 
-		$data['title'] = 'Dashboard';
+		$data['title'] = 'Daftar Berita';
 		$data['sidebar'] = "Admin";
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
-		// $data['news'] = $this->News_model->get_news();
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/news_list', $data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer', $data);
 	}
 
 	public function new()
@@ -54,7 +54,7 @@ class News extends CI_Controller
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('admin/news_new_form', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $data);
 		} else {
 			if ($this->input->method() === 'post') {
 				$news_picture = 
@@ -79,13 +79,14 @@ class News extends CI_Controller
 				'gambar' => $news_picture,
 				'isi_berita' => $this->input->post('isiberita'),
 				'waktu_dibuat' => Date('Y-m-d H:i:s'),
-				'dilihat' => 19000
+				'dilihat' => 0
 				];
 				
 				$saved = $this->News_model->insert($news);
 
 				if ($saved) {
-					$this->session->set_flashdata('message', 'Berita Berhasil Dibuat');
+					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+					Berita berhasil dibuat</div>');
 					return redirect('News');
 				}
 			}
@@ -106,7 +107,7 @@ class News extends CI_Controller
 			$this->load->view('templates/sidebar', $data);
 			$this->load->view('templates/topbar', $data);
 			$this->load->view('admin/news_edit', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/footer', $data);
     }
 
     function news_update()
@@ -154,28 +155,33 @@ class News extends CI_Controller
 							'id_berita' => $newsid
 					);
 
-					$this->News_model->update($where, $data);
-					redirect('News');
+					$updated = $this->News_model->update($where, $data);
+					if ($updated) {
+						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+						Berita berhasil diubah</div>');
+						return redirect('News');
+					}
 				}
 			}
     }
 
-	public function preview($id_berita)
+	public function preview($idnews)
 	{
 		$data['title'] = 'Dashboard';
 		$data['sidebar'] = "Admin";
 		$data['user'] = $this->db->get_where('user', ['email' =>
 		$this->session->userdata('email')])->row_array();
-		$where = array('id_berita' => $id_berita);
+		$where = array('id_berita' => $idnews);
 		$data['news_detail'] = $this->News_model->detail($where);
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar', $data);
 		$this->load->view('admin/news_detail', $data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/footer', $data);
 	}
 
-	public function delete($id = null)
+	public function delete($id)
 	{
 		$deleted = $this->News_model->delete($id);
 		if ($deleted) {

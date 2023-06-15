@@ -1,9 +1,13 @@
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
+        <?php if ($user['role_id']==2) { ?>
+        <ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <?php } 
+        else { ?>
+        <ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar">    
+        <?php } ?>
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3"><?= $sidebar; ?></div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Admin');?>">
+                <div class="sidebar-brand-text mx-3"><h4><strong>SITATA</strong></h4></div>
             </a>
 
             <!-- Divider -->
@@ -40,10 +44,10 @@
             ?>
 
             <?php foreach($subMenu as $sm) : ?>
-                <li class="nav-item">
-                <a class="nav-link" href="<?= base_url($sm['url']); ?> ">
-                    <i class="<?= $sm['icon']; ?>"></i>
-                    <span><?= $sm['title']; ?></span></a>
+            <li class="nav-item">
+            <a class="nav-link" href="<?= base_url($sm['url']); ?> ">
+                <i class="<?= $sm['icon']; ?>"></i>
+                <?= $sm['title']; ?></a>
             </li>
             <?php endforeach; ?>
 
@@ -52,7 +56,7 @@
             <?php endforeach; ?>
             <!-- Nav Item - Logout -->
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('auth/logout'); ?>">
+                <a class="nav-link" href="<?= base_url('auth/logout'); ?>"  data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-fw fa-sign-out-alt"></i>
                     <span>Logout</span></a>
             </li>

@@ -9,20 +9,27 @@
 <!-- DataTales Example -->
 
 <div class="row">
-  <div class="col-lg">
+  <?php foreach ($news as $n) {
+  ?>
+  <div class="col-lg-6">
     <div class="card mb-4 py-3 border-left-primary">
+      <a href="<?= base_url('Member/news_increment/' . $n->id_berita);?>">
       <div class="card-body">
-        <center><img src="<?= base_url()?>assets/img/news/<?= $news_detail['gambar'] ;?>" alt="" width="520" height="320"></center>
+        <img src="<?= base_url()?>assets/img/news/<?= $n->gambar ;?>" alt="" width="460" height="260">
       </div>
       <div class="card-body">
-        <h5><strong><?= $news_detail['judul'] ;?></strong></h5>
-          <?= $news_detail['isi_berita']; ?>
+        <h5><strong><?= $n->judul ;?></strong></h5>
+          Baca Selengkapnya...
       </div>
+      </a>
       <div class="card-body">
-        <i class="fas fa-eye fa-sm"></i> <?= $news_detail['dilihat'];?><br>
-        Diposting pada <?= $news_detail['waktu_dibuat'];?>
+        <i class="fas fa-eye fa-sm"></i> <?= $n->dilihat;?><br>      
+        Diposting pada <?= $n->waktu_dibuat;?>
       </div>
     </div>
   </div>
+  <?php } ?>
 </div>
+<center><button><?php echo $links; ?></button>
+</center>
     
