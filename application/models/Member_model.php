@@ -4,11 +4,11 @@ class Member_model extends CI_Model
 {
   private $_table = 'user';
 
-  public function get($limit, $start, $where)
+  public function get($limit, $start)
   {
     $this->db->select('*');
     $this->db->from($this->_table);
-    $this->db->where($where);
+    $this->db->where('role_id', 2);
     $this->db->limit($limit, $start);
     $query = $this->db->get();
     return $query->result();
@@ -16,6 +16,9 @@ class Member_model extends CI_Model
 
   public function get_count()
   {
-    return $this->db->count_all($this->_table);
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->where('role_id', 2);
+    return $this->db->count_all_results();
   }
 }

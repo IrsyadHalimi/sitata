@@ -53,4 +53,5 @@ $route['default_controller'] = 'Auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['news/(:num)'] = 'news';
+$route['comment/(:num)'] = 'comment';
 $route['user/news/(:num)'] = 'user/news/';

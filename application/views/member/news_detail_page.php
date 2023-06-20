@@ -27,7 +27,7 @@
   <div class="col-lg">
     <div class="card mb-4 py-3 border-left-primary">
       <div class="card-body">
-      <?php echo form_open_multipart('comment/new/'. $news_detail['id_berita']);?>
+      <?php echo form_open_multipart('Member/new_comment/'. $news_detail['id_berita']);?>
       <form action="" method="post">
         <strong><label for="">Komentar</label></strong><br>
         <?php foreach ($komentar as $k) {

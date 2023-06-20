@@ -7,11 +7,11 @@
             
         <!-- Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Anggota</div>
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Anggota</div>
                                 <div class="h2 mb-0 font-weight-bold text-gray-800"><?= $total_member ;?></div>
                             </div>
                             <div class="col-auto">
@@ -23,11 +23,11 @@
             </div>
             <!-- Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
+                <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Berita
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Berita
                                 </div>
                                 <div class="h2 mb-0 font-weight-bold text-gray-800"><?= $total_news; ?></div>
                             </div>
@@ -39,11 +39,11 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
+                <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Komentar
+                                <div class="text-xs font-weight-bold text-uppercase mb-1">Jumlah Komentar
                                 </div>
                                 <div class="h2 mb-0 font-weight-bold text-gray-800"><?= $total_comment;?></div>
                             </div>
@@ -60,7 +60,7 @@
         <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Komentar Terbaru</h6>
+                        <h6 class="m-0 font-weight-bold">Komentar Terbaru</h6>
                     </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -89,32 +89,30 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-xl col-md-6 mb-4">
-                <!-- DataTales Example -->
+        <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Berita Terpopuler</h6>
+                        <h6 class="m-0 font-weight-bold">Berita Terpopuler</h6>
                     </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Judul</th>
+                                    <th>Judul Berita</th>
                                     <th>Waktu Dibuat</th>
                                     <th>Dilihat</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
-                                foreach ($recent_news as $r_news) {
+                            <?php 
+                                foreach ($popular_news as $p) {
                                 ?>
                                 <tr>
-                                    <td><?= $r_news->judul;?><td>
-                                    <td><?= $r_news->waktu_dibuat;?></td>
-                                    <td><?= $r_news->dilihat;?></td>
+                                    <td><?= $p->judul;?></td>
+                                    <td><?= $p->waktu_dibuat;?></td>
+                                    <td><?= $p->dilihat;?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

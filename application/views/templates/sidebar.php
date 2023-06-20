@@ -49,7 +49,7 @@
                 <i class="<?= $sm['icon']; ?>"></i>
                 <?= $sm['title']; ?></a>
             </li>
-            <?php endforeach; ?>
+            <?php endforeach ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">

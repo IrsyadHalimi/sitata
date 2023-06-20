@@ -30,14 +30,15 @@ class Admin extends CI_Controller
 		$data["total_member"] = $this->Member_model->get_count();
 		$data["total_news"] = $this->News_model->get_count();
 		$data["total_comment"] = $this->Comment_model->get_count();
+        
         // data komentar terbaru yang diurutkan berdasarkan variabel comment_order_by, dibatasi hanya 3 data terbaru
         $comment_order_by = 'waktu_dibuat_komentar';
         $comment_limit = 3;
         $data["recent_comment"] = $this->Comment_model->get_recent_comment($comment_order_by, $comment_limit);
-        // data berita terbaru yang diurutkan berdasarkan variabel news_order_by, dibatasi hanya 3 data terbaru
-        $news_order_by = 'waktu_dibuat';
+        // data berita terpopuler yang diurutkan berdasarkan variabel news_order_by yaitu berita yang paling banyak dilihat, dibatasi hanya 3 data berita
+        $news_order_by = 'dilihat';
         $news_limit = 3;
-        $data["recent_news"] = $this->News_model->get_recent_news($news_order_by, $news_limit);
+        $data["popular_news"] = $this->News_model->get_popular_news($news_order_by, $news_limit);
 
         // menampilkan halaman view dashboard, dengan templates header, sidebar, topbar, dan footer
         $this->load->view('templates/header', $data);
@@ -53,11 +54,8 @@ class Admin extends CI_Controller
         $this->load->library("pagination");
         // inisialisasi untuk pagination, dengan jumlah 10 data per halaman
         $config = array();
-		$config["base_url"] = base_url() . "admin/get_member/";
-        $where = array(
-            'role_id' => 2
-        );
-		$config["total_rows"] = $this->Member_model->get_count($where);
+		$config["base_url"] = base_url() . "admin/get_comment/";
+		$config["total_rows"] = $this->Comment_model->get_count();
 		$config["per_page"] = 10;
 		$config["uri_segment"] = 3;
 		$this->pagination->initialize($config);
@@ -65,7 +63,7 @@ class Admin extends CI_Controller
 		$data["links"] = $this->pagination->create_links();
 
         // data anggota dengan parameter pagination
-		$data['member'] = $this->Member_model->get($config["per_page"], $page, $where);
+		$data['member'] = $this->Member_model->get($config["per_page"], $page);
 
         // memberi judul halaman anggota
         $data['title'] = 'Anggota';
@@ -78,7 +76,7 @@ class Admin extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('admin/user_list', $data);
+        $this->load->view('admin/member_list', $data);
         $this->load->view('templates/footer', $data);
     }
 }
