@@ -28,17 +28,4 @@ class Report extends CI_Controller
 		$this->pdf->render();
 		$this->pdf->stream('laporan_berita.pdf', array('Attachment' => 0));
 	}
-
-	// fungsi hapus berita
-	public function delete($id)
-	{
-		// menghapus data berita berdasarkan id berita
-		$deleted = $this->News_model->delete($id);
-		// jika sudah dihapus, maka tampilkan pesan
-		if ($deleted) {
-			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissable fade show" role="alert">Berita Berhasil dihapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-			// mengarahkan langsung ke halaman daftar berita
-			redirect('admin/news');
-		}
-	}
 }
