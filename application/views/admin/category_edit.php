@@ -6,7 +6,7 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-        <?php echo form_open_multipart('News_category/category_update/');?>
+        <?php echo form_open_multipart('admin/News_category/category_update/');?>
           <?php foreach ($category as $c) {
           ?>
           <form action="" method="post">

@@ -11,7 +11,7 @@
         <h1 class="h3 mb-2 text-gray-800"><strong><?= $news_detail['judul'];?></strong></h1>
       </div>
       <div class="card-body">
-        <center><img src="<?= base_url()?>assets/img/news/<?= $news_detail['gambar'] ;?>" alt="" width="520" height="320"></center>
+        <center><img class="img-fluid" src="<?= base_url()?>assets/img/news/<?= $news_detail['gambar'] ;?>" alt="" width="520" height="320"></center>
       </div>
       <div class="card-body">
           <?= $news_detail['isi_berita']; ?>
@@ -27,12 +27,12 @@
   <div class="col-lg">
     <div class="card mb-4 py-3 border-left-primary">
       <div class="card-body">
-      <?php echo form_open_multipart('Member/new_comment/'. $news_detail['id_berita']);?>
+      <?php echo form_open_multipart('member/Member/new_comment/'. $news_detail['id_berita']);?>
       <form action="" method="post">
         <strong><label for="">Komentar</label></strong><br>
         <?php foreach ($komentar as $k) {
         ?>
-        <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" width="30" height="30"><strong><?= $k->nama;?>:</strong> <?= $k->isi_komentar ;?><br><?= $k->waktu_dibuat_komentar ;?><br><br>
+        <img class="img-fluid" class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image']; ?>" width="30" height="30"><strong><?= $k->nama;?>:</strong> <?= $k->isi_komentar ;?><br><?= $k->waktu_dibuat_komentar ;?><br><br>
         <?php } ?>
         <br><br><br>
         <div class="input-group">

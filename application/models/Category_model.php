@@ -11,29 +11,6 @@ class Category_model extends CI_Model
     $query = $this->db->get();
     return $query->result();
   }
-  public function get_count()
-  {
-    return $this->db->count_all($this->_table);
-  }
-
-  public function get_by_id($category_id)
-  {
-    $this->db->select('*');
-    $this->db->from($this->_table);
-    $this->db->where($category_id);
-    $query = $this->db->get();
-    return $query->result();
-  }
-  
-  public function detail($where)
-  {
-    $this->db->select('*');
-    $this->db->from($this->_table);
-    $this->db->join('kategori', 'kategori.id_kategori=berita.id_kategori');
-    $query = $this->db->where($where);
-    $query = $this->db->get();
-    return $query->row_array();
-  }
 
   public function insert($category)
   {
@@ -44,13 +21,6 @@ class Category_model extends CI_Model
   {
     $this->db->where($where);       
     $this->db->update($this->_table, $data);
-  }
-
-  public function preview($id)
-  {
-    if (!$id) {
-      return;
-    }
   }
 
   public function delete($id)
@@ -68,16 +38,6 @@ class Category_model extends CI_Model
     return $query->result();
   }
 
-  public function get_recent_news($news_order_by, $news_limit)
-  {
-    $this->db->select('*');
-    $this->db->from($this->_table);
-    $this->db->order_by($news_order_by, 'DESC');
-    $this->db->limit($news_limit);
-    $query = $this->db->get();
-    return $query->result();
-  }
-  
   public function delete_category($id)
   {
     if (!$id) {
@@ -85,5 +45,14 @@ class Category_model extends CI_Model
     }
 
     return $this->db->delete($this->_table, ['id_kategori' => $id]);
+  }
+
+  public function get_by_id($id_category)
+  {
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->where($id_category);
+    $query = $this->db->get();
+    return $query->result();
   }
 }

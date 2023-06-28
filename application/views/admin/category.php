@@ -5,7 +5,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="<?= base_url('News_category/new/');?>"><button class="btn btn-danger"><i class="fas fa-plus fa-sm"></i> Tambah Kategori</button></a>
+        <a href="<?= base_url('admin/News_category/new/');?>"><button class="btn btn-danger"><i class="fas fa-plus fa-sm"></i> Tambah Kategori</button></a>
     </div>
     <?= $this->session->flashdata('message'); ?>
     <div class="card-body">
@@ -25,7 +25,15 @@
                     <tr>
                         <td><?= $c->id_kategori;?></td>
                         <td><?= $c->kategori;?></td>
-                        <td><a href="<?= base_url('News_category/category_edit/' . $c->id_kategori);?>" class="btn btn-danger"><i class="fas fa-pen fa-sm"></i></a>  <a href="<?= base_url('News_category/delete/' . $c->id_kategori);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
+                        <td><a href="<?= base_url('admin/News_category/category_edit/' . $c->id_kategori);?>" class="btn btn-danger"><i class="fas fa-pen fa-sm"></i></a>  
+                        <?php
+                        if ($c->id_kategori == 12) { ?>
+                           
+                        <?php } else {
+                        ?>
+                            <a href="<?= base_url('admin/News_category/delete/' . $c->id_kategori);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a>
+                        <?php } ?>
+                        </td>
                     </tr>
                   <?php } ?>
                 </tbody>

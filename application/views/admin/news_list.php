@@ -5,7 +5,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="<?= base_url('News/new/');?>"><button class="btn btn-danger"><i class="fas fa-plus fa-sm"></i> Tambah Berita</button></a>
+        <a href="<?= base_url('admin/News/new/');?>"><button class="btn btn-danger"><i class="fas fa-plus fa-sm"></i> Tambah Berita</button></a>
     </div>
     <?= $this->session->flashdata('message'); ?>
     <div class="card-body">
@@ -38,7 +38,7 @@
                         <td><?= $n->kategori;?></td>
                         <td><?= $n->waktu_dibuat;?></td>
                         <td><?= $n->dilihat;?></td>
-                        <td><a href="<?= base_url('News/preview/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-eye fa-sm"></i></a>  <a href="<?= base_url('News/news_edit/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-pen fa-sm"></i></a>  <a href="<?= base_url('News/delete/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
+                        <td><a href="<?= base_url('admin/News/preview/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-eye fa-sm"></i></a>  <a href="<?= base_url('admin/News/news_edit/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-pen fa-sm"></i></a>  <a href="<?= base_url('admin/News/delete/' . $n->id_berita);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
                     </tr>
                   <?php } ?>
                 </tbody>

@@ -97,11 +97,38 @@ class News_model extends CI_Model
     return $query->result();
   }
 
+  public function get_announce_news($where, $news_limit)
+  {
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->join('kategori', 'kategori.id_kategori=berita.id_kategori');
+    $this->db->where($where, 'DESC');
+    $this->db->limit($news_limit);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
   public function increment_view($idnews)
   {
     $this->db->where('id_berita', $idnews);
     $this->db->set('dilihat', 'dilihat+1', FALSE);
     $this->db->update($this->_table);
   }
-  
+
+  public function get_by_category($id_category)
+  {
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->where('id_kategori', $id_category);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+  public function get_news_by_date_range($start_date, $end_date)
+  {
+    $this->db->where('waktu_dibuat', $start_date);
+    $this->db->where('waktu_dibuat', $end_date);
+    $query = $this->db->get($this->_table);
+    return $query->result();
+  }
 }

@@ -6,7 +6,7 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-        <?php echo form_open_multipart('news/new');?>
+        <?php echo form_open_multipart('admin/news/new');?>
           <form action="" method="post">
             <label for=""><strong>Judul Berita</strong></label><?= form_error('judul', '<small class="text-danger pl-3">', '</small>');?>
             <div class="input-group">

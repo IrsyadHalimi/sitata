@@ -34,9 +34,9 @@
                         <td><?= $m->id;?></td>
                         <td><?= $m->nama;?></td>
                         <td><?= $m->email;?></td>
-                        <td><img src="<?= base_url()?>assets/img/profile/<?= $m->image;?>" alt="Foto Profil" width="70" height="70"></td>
+                        <td><img class="img-fluid" src="<?= base_url()?>assets/img/profile/<?= $m->image;?>" alt="Foto Profil" width="70" height="70"></td>
                         <td><?= date('d F Y', $m->date_created); ?></td>
-                        <td><a href="<?= base_url('Admin/delete_member/' . $m->id);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
+                        <td><a href="<?= base_url('admin/dashboard/delete_member/' . $m->id);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
                     </tr>
                   <?php } ?>
                 </tbody>

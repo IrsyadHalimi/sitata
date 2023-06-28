@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><img src="<?= base_url();?>assets/img/news/<?= $news_detail['gambar'];?>" alt="Gambar Berita" width="720" height="360"></td>
+                        <td><img class="img-fluid" src="<?= base_url();?>assets/img/news/<?= $news_detail['gambar'];?>" alt="Gambar Berita" width="720" height="360"></td>
                     </tr>
                 </tbody>
                 <thead>
@@ -67,6 +67,32 @@
                         <td><?= $news_detail['waktu_dibuat'];?></td>
                         <td><?= $news_detail['dilihat'];?></td>
                     </tr>
+                </tbody>
+                <thead>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th colspan="3">Komentar Anggota</th>
+                    </tr>
+                    <tr>
+                        <th>Nama Anggota</th>
+                        <th>Isi Komentar</th>
+                        <th>Waktu Dibuat Komentar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($komentar as $k) {
+                    ?>
+                    <tr>
+                        <td><?= $k->nama;?></td>
+                        <td><?= $k->isi_komentar;?></td>
+                        <td><?= $k->waktu_dibuat_komentar;?></td>
+                    </tr>
+                    <?php } ?>
                 </tbody>
                 <thead>
             </table>

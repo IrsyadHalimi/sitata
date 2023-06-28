@@ -5,7 +5,7 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-        <?php echo form_open_multipart('news/news_update/');?>
+        <?php echo form_open_multipart('admin/news/news_update/');?>
           <?php foreach ($news as $n) {
           ?>
           <form action="" method="post">
@@ -36,7 +36,7 @@
             <?php if (isset($n->gambar)) { ?>
                 <input type="hidden" name="old_pict" id="old_pict" value="<?= $n->gambar; ?>">
             <?php } ?>
-              <img src="<?= base_url()?>assets/img/news/<?= $n->gambar;?>" width="420" height="240">
+              <img class="img-fluid" src="<?= base_url()?>assets/img/news/<?= $n->gambar;?>" width="420" height="240">
               <div class="input-group">
                 <br><input type="file" name="gambar">
               </div>

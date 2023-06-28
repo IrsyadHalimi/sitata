@@ -7,9 +7,9 @@
   ?>
   <div class="col-lg-6">
     <div class="card mb-4 py-3 border-left-primary">
-      <a href="<?= base_url('Member/news_increment/' . $n->id_berita);?>">
+      <a href="<?= base_url('member/Member/news_increment/' . $n->id_berita);?>">
       <div class="card-body">
-        <img src="<?= base_url()?>assets/img/news/<?= $n->gambar ;?>" alt="" width="460" height="260">
+        <img class="img-fluid" src="<?= base_url()?>assets/img/news/<?= $n->gambar ;?>" alt="" width="460" height="260">
       </div>
       <div class="card-body">
         <h5><strong><?= $n->judul ;?></strong></h5>

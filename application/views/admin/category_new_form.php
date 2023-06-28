@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-        <?php echo form_open_multipart('News_category/new');?>
+        <?php echo form_open_multipart('admin/News_category/new');?>
           <form action="" method="post">
             <label for=""><strong>Kategori</strong></label><?= form_error('kategori', '<small class="text-danger pl-3">', '</small>');?>
             <div class="input-group">

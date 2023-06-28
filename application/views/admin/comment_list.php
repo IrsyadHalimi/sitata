@@ -37,7 +37,7 @@
                         <td><?= $c->isi_komentar;?></td>
                         <td><?= $c->judul?></td>
                         <td><?= $c->waktu_dibuat_komentar ?></td>
-                        <td><a href="<?= base_url('Comment/delete/' . $c->id_komentar);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
+                        <td><a href="<?= base_url('admin/Comment/delete/' . $c->id_komentar);?>" class="btn btn-danger"><i class="fas fa-trash fa-sm"></i></a></td>
                     </tr>
                   <?php } ?>
                 </tbody>

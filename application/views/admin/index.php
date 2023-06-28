@@ -7,6 +7,7 @@
             
         <!-- Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
+            <a href="<?= base_url('admin/Dashboard/get_member/'); ?>">
                 <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -20,9 +21,11 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             <!-- Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
+            <a href="<?= base_url('admin/News/'); ?>">
                 <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -37,8 +40,10 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             <div class="col-xl-3 col-md-6 mb-4">
+            <a href="<?= base_url('admin/Comment/'); ?>">
                 <div class="card border-left-danger shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -53,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
         </div>
         <div class="row">
@@ -79,9 +85,10 @@
                                 ?>
                                 <tr>
                                     <td><?= $r_comment->nama; ?></td>
-                                    <td><?= $r_comment->isi_komentar;?></td>
+                                    <td><a href="<?= base_url('admin/News/preview/'. $r_comment->id_berita); ?>"><?= $r_comment->isi_komentar;?></a></td>
                                     <td><?= $r_comment->judul;?></td>
                                     <td><?= $r_comment->waktu_dibuat_komentar;?></td>
+                                    
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -110,7 +117,7 @@
                                 foreach ($popular_news as $p) {
                                 ?>
                                 <tr>
-                                    <td><?= $p->judul;?></td>
+                                    <td><a href="<?= base_url('admin/News/preview/'. $p->id_berita); ?>"><?= $p->judul;?></td>
                                     <td><?= $p->waktu_dibuat;?></td>
                                     <td><?= $p->dilihat;?></td>
                                 </tr>
