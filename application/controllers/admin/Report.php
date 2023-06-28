@@ -10,13 +10,6 @@ class Report extends CI_Controller
 		$this->load->helper('sitata_helper');
 		// memanggil model berita
 		$this->load->model('News_model');
-		// memanggil library pagination
-		$this->load->library("pagination");
-		// memanggil library pdf
-		$this->load->library("pdf");
-		// memeriksa jika admin sudah login
-		check_login();
-		check_admin();
 	}
 
 	public function report_print($start_date, $end_date)
