@@ -55,4 +55,14 @@ class Comment_model extends CI_Model
 
     return $this->db->delete($this->_table, ['id_komentar' => $id]);
   }
+
+  public function get_report()
+  {
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->join('user', 'user.id=komentar.id');
+    $this->db->join('berita', 'berita.id_berita=komentar.id_berita');
+    $query = $this->db->get();
+    return $query->result();
+  }
 }

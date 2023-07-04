@@ -79,4 +79,16 @@ class Dashboard extends CI_Controller
         $this->load->view('admin/member_list', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    public function delete_member($id)
+	{
+		// menghapus data anggota berdasarkan id anggota
+		$deleted = $this->Member_model->delete($id);
+		// jika sudah dihapus, maka tampilkan pesan
+		if ($deleted) {
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissable fade show" role="alert">Anggota Berhasil dihapus<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+			// mengarahkan langsung ke halaman daftar berita
+			redirect('admin/Dashboard/get_member');
+		}
+	}
 }

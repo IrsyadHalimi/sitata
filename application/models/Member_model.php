@@ -21,4 +21,16 @@ class Member_model extends CI_Model
     $this->db->where('role_id', 2);
     return $this->db->count_all_results();
   }
+
+  public function delete($id)
+  {
+    if (!$id) {
+      return;
+    }
+
+    $query = array(
+      $this->db->delete($this->_table, ['id' => $id])
+    );
+    return $query;
+  }
 }

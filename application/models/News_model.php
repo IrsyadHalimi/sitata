@@ -124,11 +124,12 @@ class News_model extends CI_Model
     return $query->result();
   }
 
-  public function get_news_by_date_range($start_date, $end_date)
+  public function get_report()
   {
-    $this->db->where('waktu_dibuat', $start_date);
-    $this->db->where('waktu_dibuat', $end_date);
-    $query = $this->db->get($this->_table);
+    $this->db->select('*');
+    $this->db->from($this->_table);
+    $this->db->join('kategori', 'kategori.id_kategori = berita.id_kategori');
+    $query = $this->db->get();
     return $query->result();
   }
 }

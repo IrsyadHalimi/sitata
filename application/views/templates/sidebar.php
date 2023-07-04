@@ -6,7 +6,7 @@
         <ul class="navbar-nav bg-danger sidebar sidebar-dark accordion" id="accordionSidebar">    
         <?php } ?>
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Admin');?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-text mx-3"><h4><strong>SITATA</strong></h4></div>
             </a>
 
