@@ -28,7 +28,7 @@ class Report extends CI_Controller
       date_default_timezone_set("Asia/Jakarta");
       $date = Date('Y-m-d');
       // memanggil library pdf
-      $this->load->library('pdf');
+      $this->load->library('Pdf');
       // konfigurasi ukuran kertas cetak
       $this->pdf->setPaper('A4', 'potrait');
       // memberi nama file untuk hasil download
