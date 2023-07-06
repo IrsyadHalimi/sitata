@@ -17,7 +17,7 @@
             <br>
             <label for=""><strong>Isi Berita</strong></label><?= form_error('isiberita', '<small class="text-danger pl-3">', '</small>');?>
             <div class="input-group">
-              <textarea class="form-control bg-light border-0 small" placeholder="Masukkan Isi Berita" name="isiberita" id="" cols="30" rows="10" value="<?= set_value('isiberita'); ?>"></textarea>
+              <textarea class="form-control bg-light border-0 small" placeholder="Masukkan Isi Berita" name="isiberita" id="" cols="30" rows="10" value="<?= set_value('isiberita'); ?>"><?= set_value('isiberita'); ?></textarea>
             </div>
             <br>
             <label for=""><strong>Pilih Kategori Berita</strong></label><?= form_error('idkategori', '<small class="text-danger pl-3">', '</small>');?>

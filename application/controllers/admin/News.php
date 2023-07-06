@@ -210,8 +210,7 @@ class News extends CI_Controller
 					$updated = $this->News_model->update($where, $data);
 					// jika sudah diubah, maka tampilkan pesan
 					if ($updated) {
-						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-						Berita berhasil diubah</div>');
+						$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissable fade show" role="alert">Berita Berhasil diubah<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 						// mengarahkan langsung ke halaman daftar berita
 						return redirect('admin/News');
 					}
